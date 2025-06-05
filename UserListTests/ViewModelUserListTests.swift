@@ -11,7 +11,7 @@ import XCTest
 
 final class ViewModelUserListTests: XCTestCase {
 
-    func testCount() async throws {
+    func testIsEmpty() async throws {
         // Given
         let viewModel: ViewModelUserList = ViewModelUserList()
 
@@ -24,7 +24,7 @@ final class ViewModelUserListTests: XCTestCase {
         let viewModel: ViewModelUserList = ViewModelUserList()
 
         // When
-        viewModel.fetchUsers()
+        await viewModel.fetchUsers()
         while viewModel.isLoading {}
 
         // Then
@@ -36,7 +36,7 @@ final class ViewModelUserListTests: XCTestCase {
         let viewModel: ViewModelUserList = ViewModelUserList()
 
         // When
-        viewModel.fetchUsers()
+        await viewModel.fetchUsers()
         while viewModel.isLoading {}
 
         // Then
@@ -48,7 +48,7 @@ final class ViewModelUserListTests: XCTestCase {
         let viewModel: ViewModelUserList = ViewModelUserList()
 
         // When
-        viewModel.reloadUsers()
+        await viewModel.reloadUsers()
         while viewModel.isLoading {}
 
         // Then

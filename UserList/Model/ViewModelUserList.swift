@@ -7,16 +7,12 @@
 
 import Foundation
 
-@MainActor final class ViewModelUserList: ObservableObject {
+final class ViewModelUserList: ObservableObject {
     @Published private(set) var users: [User] = []
     @Published var isLoading = false
     @Published var isGridView: Bool = false
 
     private let repository = UserListRepository()
-    
-    init() {
-        fetchUsers()
-    }
     
     func shouldLoadMoreData(currentItem item: User) -> Bool {
         guard let lastItem = users.last else { return false }
@@ -24,21 +20,23 @@ import Foundation
     }
 
     // MARK: Loading
-    func fetchUsers() {
+    @MainActor func fetchUsers() async {
         isLoading = true
         Task {
             do {
                 let users = try await repository.fetchUsers(quantity: 20)
-                self.users.append(contentsOf: users)
-                isLoading = false
+                Task { @MainActor in
+                    self.users.append(contentsOf: users)
+                    isLoading = false
+                }
             } catch {
                 print("Error fetching users: \(error.localizedDescription)")
             }
         }
     }
 
-    func reloadUsers() {
+    @MainActor func reloadUsers() async {
         users.removeAll()
-        fetchUsers()
+        await fetchUsers()
     }
 }

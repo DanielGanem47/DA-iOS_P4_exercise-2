@@ -107,7 +107,7 @@
 			children = (
 				377851E82DF057BD006B6E88 /* Model */,
 				377851DF2DEF3C07006B6E88 /* Views */,
-				37C4AB322DF1BF2D001DCEEF /* Sources 2 */,
+				37C4AB322DF1BF2D001DCEEF /* Sources */,
 				2FF9D9182ACB3C1000F3A6C5 /* Resources */,
 			);
 			path = UserList;
@@ -153,7 +153,7 @@
 			path = HTTPClient;
 			sourceTree = "<group>";
 		};
-		37C4AB322DF1BF2D001DCEEF /* Sources 2 */ = {
+		37C4AB322DF1BF2D001DCEEF /* Sources */ = {
 			isa = PBXGroup;
 			children = (
 				37C4AB2D2DF1BF2D001DCEEF /* HTTPClient */,
@@ -161,7 +161,7 @@
 				37C4AB302DF1BF2D001DCEEF /* UserListRepository.swift */,
 				37C4AB312DF1BF2D001DCEEF /* UserListResponse.swift */,
 			);
-			path = "Sources 2";
+			path = Sources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
