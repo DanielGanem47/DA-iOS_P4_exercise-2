@@ -18,6 +18,9 @@
 		2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64272AC6D255007F2F80 /* UserListApp.swift */; };
 		2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FFB64292AC6D255007F2F80 /* UserListView.swift */; };
 		2FFB642C2AC6D256007F2F80 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FFB642B2AC6D256007F2F80 /* Assets.xcassets */; };
+		377851DE2DEF1E48006B6E88 /* ViewModelUserList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377851DD2DEF1E48006B6E88 /* ViewModelUserList.swift */; };
+		377851E12DEF3C59006B6E88 /* RectangularUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377851E02DEF3C59006B6E88 /* RectangularUserView.swift */; };
+		377851E32DEF3D48006B6E88 /* RoundUserView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377851E22DEF3D48006B6E88 /* RoundUserView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +48,9 @@
 		2FFB64292AC6D255007F2F80 /* UserListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserListView.swift; sourceTree = "<group>"; };
 		2FFB642B2AC6D256007F2F80 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		2FFB64342AC6D256007F2F80 /* UserListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = UserListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		377851DD2DEF1E48006B6E88 /* ViewModelUserList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModelUserList.swift; sourceTree = "<group>"; };
+		377851E02DEF3C59006B6E88 /* RectangularUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangularUserView.swift; sourceTree = "<group>"; };
+		377851E22DEF3D48006B6E88 /* RoundUserView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundUserView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -69,8 +75,6 @@
 			isa = PBXGroup;
 			children = (
 				2FFB64272AC6D255007F2F80 /* UserListApp.swift */,
-				2FFB64292AC6D255007F2F80 /* UserListView.swift */,
-				2F804AE12ACC976300A46A03 /* UserDetailView.swift */,
 				2FEF0C702ACB45E3004DB87C /* User.swift */,
 				2FEF0C6E2ACB416C004DB87C /* UserListResponse.swift */,
 				2FF9D91E2ACB3DD400F3A6C5 /* UserListRepository.swift */,
@@ -118,6 +122,8 @@
 		2FFB64262AC6D255007F2F80 /* UserList */ = {
 			isa = PBXGroup;
 			children = (
+				377851E82DF057BD006B6E88 /* Model */,
+				377851DF2DEF3C07006B6E88 /* Views */,
 				2FF9D9172ACB3C0B00F3A6C5 /* Sources */,
 				2FF9D9182ACB3C1000F3A6C5 /* Resources */,
 			);
@@ -131,6 +137,25 @@
 				2FB4823B2ACC98DD0016CBA7 /* UserList.xctestplan */,
 			);
 			path = UserListTests;
+			sourceTree = "<group>";
+		};
+		377851DF2DEF3C07006B6E88 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				2F804AE12ACC976300A46A03 /* UserDetailView.swift */,
+				2FFB64292AC6D255007F2F80 /* UserListView.swift */,
+				377851E02DEF3C59006B6E88 /* RectangularUserView.swift */,
+				377851E22DEF3D48006B6E88 /* RoundUserView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		377851E82DF057BD006B6E88 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				377851DD2DEF1E48006B6E88 /* ViewModelUserList.swift */,
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,11 +261,14 @@
 				2FF9D91D2ACB3D8800F3A6C5 /* HTTPMethod.swift in Sources */,
 				2FF9D91B2ACB3CE600F3A6C5 /* URLRequest.swift in Sources */,
 				2FFB642A2AC6D255007F2F80 /* UserListView.swift in Sources */,
+				377851DE2DEF1E48006B6E88 /* ViewModelUserList.swift in Sources */,
 				2FEF0C6F2ACB416C004DB87C /* UserListResponse.swift in Sources */,
 				2F804AE22ACC976300A46A03 /* UserDetailView.swift in Sources */,
 				2FF9D91F2ACB3DD400F3A6C5 /* UserListRepository.swift in Sources */,
+				377851E12DEF3C59006B6E88 /* RectangularUserView.swift in Sources */,
 				2FFB64282AC6D255007F2F80 /* UserListApp.swift in Sources */,
 				2FEF0C712ACB45E3004DB87C /* User.swift in Sources */,
+				377851E32DEF3D48006B6E88 /* RoundUserView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
