@@ -7,12 +7,16 @@
 
 import Foundation
 
-@MainActor class ViewModelUserList: ObservableObject {
+@MainActor final class ViewModelUserList: ObservableObject {
     @Published private(set) var users: [User] = []
     @Published var isLoading = false
     @Published var isGridView: Bool = false
 
     private let repository = UserListRepository()
+    
+    init() {
+        fetchUsers()
+    }
     
     func shouldLoadMoreData(currentItem item: User) -> Bool {
         guard let lastItem = users.last else { return false }
