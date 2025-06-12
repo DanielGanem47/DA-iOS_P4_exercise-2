@@ -13,7 +13,7 @@ final class ViewModelUserListTests: XCTestCase {
 
     func testIsEmpty() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // Then
         XCTAssertEqual(viewModel.users.count, 0)
@@ -21,23 +21,21 @@ final class ViewModelUserListTests: XCTestCase {
 
     func testFetchUsers() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // When
         await viewModel.fetchUsers()
-        while viewModel.isLoading {}
 
         // Then
-        XCTAssertFalse(viewModel.users.count == 0)
+        XCTAssertEqual(viewModel.users.count, 2)
     }
 
     func testShouldLoadMoreData() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // When
         await viewModel.fetchUsers()
-        while viewModel.isLoading {}
 
         // Then
         XCTAssertFalse(viewModel.shouldLoadMoreData(currentItem: viewModel.users[0]))
@@ -45,11 +43,10 @@ final class ViewModelUserListTests: XCTestCase {
 
     func testReloadUsers() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // When
         await viewModel.reloadUsers()
-        while viewModel.isLoading {}
 
         // Then
         XCTAssertFalse(viewModel.shouldLoadMoreData(currentItem: viewModel.users[0]))
