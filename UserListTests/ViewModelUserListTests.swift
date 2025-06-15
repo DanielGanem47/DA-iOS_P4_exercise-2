@@ -6,52 +6,47 @@
 //
 
 import Testing
-import XCTest
 @testable import UserList
 
-final class ViewModelUserListTests: XCTestCase {
-
-    func testIsEmpty() async throws {
+struct ViewModelUserListTests {
+    @Test func isEmpty() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // Then
-        XCTAssertEqual(viewModel.users.count, 0)
+        #expect(viewModel.users.count == 0)
     }
 
-    func testFetchUsers() async throws {
+    @Test func fetchUsers() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // When
         await viewModel.fetchUsers()
-        while viewModel.isLoading {}
 
         // Then
-        XCTAssertFalse(viewModel.users.count == 0)
+        #expect(viewModel.users.count == 2)
     }
 
-    func testShouldLoadMoreData() async throws {
+    @Test func shouldLoadMoreData() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // When
         await viewModel.fetchUsers()
-        while viewModel.isLoading {}
 
         // Then
-        XCTAssertFalse(viewModel.shouldLoadMoreData(currentItem: viewModel.users[0]))
+        #expect(viewModel.shouldLoadMoreData(currentItem: viewModel.users[0]) == false)
     }
 
-    func testReloadUsers() async throws {
+    @Test func reloadUsers() async throws {
         // Given
-        let viewModel: ViewModelUserList = ViewModelUserList()
+        let viewModel: ViewModelUserList = ViewModelUserList(repository: UserListRepository.mock())
 
         // When
         await viewModel.reloadUsers()
-        while viewModel.isLoading {}
 
         // Then
-        XCTAssertFalse(viewModel.shouldLoadMoreData(currentItem: viewModel.users[0]))
+        #expect(viewModel.users.count == 2)
     }
 }
